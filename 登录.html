@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+	<meta charset="UTF-8">
+	<title>登录</title>
+	<meta name="keywords" content="" />
+	<meta name="description" content="" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<link rel="stylesheet" href="css/cui.css" />
+	<link rel="stylesheet" href="css/lib.css" />
+	<link rel="stylesheet" href="css/style.css" />
+	<style>
+		html,body{height: 100%;overflow: hidden;}
+	</style>
+</head>
+<body class="login">
+	
+	<div id="hd-login">
+		<div class="wp">
+			<a href="" class="logo-l"><img src="images/logo-l.png" alt=""></a>
+		</div>
+	</div>
+
+	<div id="bd">
+		<div class="m-login">
+			<ul class="tab">
+				<li class="i1"><a href="">登录</a></li>
+				<li class="i2 on"><a href="">注册</a></li>
+				<li class="i3"><a href="">关于洋800</a></li>
+			</ul>
+			<div class="content">
+				<form action="">
+					<strong>注册成5DCC分销商或供应商</strong>
+					<div class="con">
+						<span><em>*</em>用户名：</span>
+						<input type="text" class="inp1">
+					</div>
+					<div class="con">
+						<span><em>*</em>手机号：</span>
+						<input type="text" class="inp1">
+					</div>
+					<div class="con">
+						<span><em>*</em>输入验证码：</span>
+						<input type="text" class="inp1">
+						<input type="submit" value="获取验证码" id="get-code">
+					</div>
+					<div class="con">
+						<span><em>*</em>登录密码：</span>
+						<input type="password" class="inp1">
+					</div>
+					<div class="con">
+						<span><em>*</em>确认密码：</span>
+						<input type="password" class="inp1">
+					</div>
+					<div class="con">
+						<span><em>*</em>店铺连接：</span>
+						<input type="text" class="inp1">
+					</div>
+					<label><input type="checkbox"><a href="">阅读并同意许可协议</a></label>
+					<button class="btn">提交</button>
+				</form>
+			</div>
+		</div>
+	</div>
+
+	<div id="fd-l">
+		XXXXXXXXXXXXXXXX网络科技有限公司 Copyright ©2015-2017  浙备ICP0000000号 经营许可证：000000000000
+	</div>
+
+	<script src="js/jquery.js"></script>
+	<script>
+	    var wait = 60;
+	    function mbtime(o) {
+	        if (wait == 60  ) {
+	            //ajax发送短信
+	        }
+	        if (wait == 0) {
+	            o.val('重发验证码').attr('disabled',false).removeClass('disabled');
+	            wait = 60;
+	        } else {
+	            o.attr('disabled',true).val('已发送(' + wait + ")").addClass('disabled');
+	            wait--;
+	            setTimeout(function() {mbtime(o)},1000);
+	        }
+	    }
+	    $('#get-code').click(function(event) {
+	    	mbtime( $(this) )
+		    return false;
+	    });
+	</script>
+
+</body>
+</html>
